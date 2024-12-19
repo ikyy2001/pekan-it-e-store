@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'E-store') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -20,13 +20,54 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #313651;
+
+        }
+        nav {  
+            position: relative;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 50px;
+            background-color: #262B43;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            background:  #262B43;
+        }
+        .logo {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            left: 10px;
+            top: 0px;
+        }
+        a .navbar-brand{
+            position: relative;
+            width: 100%;
+            height: 60px;
+            left: 214px;
+            top: 25px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 15px;
+            color: #FFFFFF;
+        }
+    </style>
 
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+                <img class="logo"src="{{ asset('logo.png') }}" alt="logo">
                 <a class="navbar-brand" href="{{ route('index_product') }}">
-                    E-commerce
+                    TOKO-RPL
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -97,7 +138,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="w">
             @yield('content')
         </main>
     </div>

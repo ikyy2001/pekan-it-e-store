@@ -1,12 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .card{
+        background: #262B43;
+        margin-top: 50px;
+    }
+</style>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Cart') }}</div>
-
                     <div class="card-body ">
                         @if ($errors->any())
                             @foreach ($errors->all() as $error)

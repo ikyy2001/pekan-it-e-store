@@ -1,12 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .card{
+        background: #262B43;
+        margin-top: 50px;
+        height: 300px;
+        border-radius: 30px;
+    }
+    .card-body{
+        align-items: center;
+        margin-top: 70px;
+    }
+    label{
+        color: #f1f1f1;
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">

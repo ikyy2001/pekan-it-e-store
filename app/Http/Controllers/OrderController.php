@@ -10,6 +10,7 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class OrderController extends Controller
 {
@@ -24,7 +25,8 @@ class OrderController extends Controller
         }
 
         $order = Order::create([
-            'user_id' => $user_id
+            'user_id' => $user_id,
+            'random_id' => Str::uuid() // Menggunakan UUID sebagai nilai random_id
         ]);
 
         foreach ($carts as $cart) {

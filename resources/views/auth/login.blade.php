@@ -1,16 +1,83 @@
 @extends('layouts.app')
 
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background: #ffffff;
+    }
+    .container{
+        background: ;
+    }
+    .container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+    img{
+        width: 1030px;
+        height: 720px;
+        float: left;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        left: 0;
+    }
+    .card-header{
+        width: 500px;
+        height: 50px;
+        left: 600px;
+    }
+    .card-body {
+        background: #313651;
+        /* Rectangle 18 */
+        position: absolute;
+        width: 500px;
+        height: 720px;
+        left: 690px;
+        top: 0;
+        right: 0;
+        margin-top: 0;
+        margin-right: 0;
+        background: #313651;
+        box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.25);
+        float: right    ;
+    }
+    h2{
+        position: absolute;
+        width: 150px;
+        height: 50px;
+        left: 40%;
+        top: 100px;
+        background: #262B43;
+        border-radius: 50px;
+        justify-content: center;
+        color: white;
+        font-family: 'poppins';
+        text-align: center;
+        align-items: center;
+    }
+    .form{
+        top: 50px;
+        margin-top:200px ;
+    }
+    label{
+        color: #ffffff;
+    }
+</style>
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+        <img src="{{ asset('web.png') }}" alt="web.png">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <h2>Login</h2>
+                    <form class="form" method="POST" action="{{ route('login') }}">
                         @csrf
-
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 

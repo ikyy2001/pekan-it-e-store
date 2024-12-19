@@ -1,19 +1,52 @@
 @extends('layouts.app')
-
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .card{
+        background:  #262B43;
+        margin-top: 100px;
+        position: absolute;
+    }
+    .card-body{
+        background: #262B43;
+    }
+    h3{
+        font-family: 'poppins';
+        color: white;
+        background-color: #62929A;
+        width:150px ;
+        font-size: 50px;
+        align-items:center;
+        text-align: center;
+        border-radius: 30px;
+        top: 0;
+    }
+    label{
+        color: #ffffff;
+        margin-bottom: 5px;
+    }
+    form button{
+        background: #62929A;
+        margin-left: 600px;
+        width: 200px;
+    }
+    
+</style>
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Profile') }}</div>
-
                     <div class="card-body">
                         @if ($errors->any())
                             @foreach ($errors->all() as $error)
                                 <p>{{ $error }}</p>
                             @endforeach
                         @endif
-
+                        <h3>Your Profile</h3>
                         <form action="{{ route('edit_profile') }}" method="post">
                             @csrf
                             <div class="form-group">

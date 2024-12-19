@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">

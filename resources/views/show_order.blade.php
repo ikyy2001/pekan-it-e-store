@@ -16,9 +16,9 @@
                         <h6 class="card-subtitle mb-2 text-muted">By {{ $order->user->name }}</h6>
 
                         @if ($order->is_paid == true)
-                            <p class="card-text">Paid</p>
+                            <p class="card-text text-white">Paid</p>
                         @else
-                            <p class="card-text">Unpaid</p>
+                            <p class="card-text text-white">Unpaid</p>
                         @endif
                         <hr>
                         @foreach ($order->transactions as $transaction)

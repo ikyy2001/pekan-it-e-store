@@ -16,6 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{{ asset('logo.png') }}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -26,7 +27,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: Arial, Helvetica, sans-serif;
-            background: #313651;
+            background: #ededed;
 
         }
         nav {  
@@ -66,8 +67,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <img class="logo"src="{{ asset('logo.png') }}" alt="logo">
-                <a class="navbar-brand" href="{{ route('index_product') }}">
-                    TOKO-RPL
+                <a style="font-weight: bold; color:#62929A" class="navbar-brand" href="{{ route('index_product') }}">
+                    DEVRPL<span style="color: grey"> E-STORE</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -113,6 +114,10 @@
                                             Cart
                                         </a>
                                     @endif
+
+                                    <a class="dropdown-item" href="{{ route('index_product') }}">
+                                        Product(s)
+                                    </a>
 
                                     <a class="dropdown-item" href="{{ route('index_order') }}">
                                         Order

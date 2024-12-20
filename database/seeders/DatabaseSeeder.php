@@ -23,7 +23,14 @@ class DatabaseSeeder extends Seeder
                 'email'=>'admin@admin.com',
                 'password'=> Hash::make('12345678'),
                 'is_admin' => true
-                ]
+            ], 
+            [
+                'id' => 2,
+                'name'=>'Erlang',
+                'email'=>'erlang@ratu.com',
+                'password'=> Hash::make('12345678'),
+                'is_admin' => false
+            ]
         ]);
     }
 }

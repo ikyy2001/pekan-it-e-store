@@ -1,131 +1,189 @@
 @extends('layouts.app')
+
+@section('content')
 <style>
-    body{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    :root {
+        --primary-color: #62929A;
+        --primary-darker: #4A7278;
+        --text-dark: #2C3E50;
+        --text-muted: #95A5A6;
+        --background-light: #F8FAFC;
     }
-    img{
-        width: 1030px;
-        height: 720px;
-        float: left;
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        left: 0;
+    
+    body {
+        background: linear-gradient(145deg, var(--primary-darker) 0%, var(--primary-color) 100%);
+        min-height: 100vh;
+        font-family: 'Inter', sans-serif;
     }
-    .card-body {
-        background: #313651;
-        /* Rectangle 18 */
-        position: absolute;
-        width: 500px;
-        height: 720px;
-        left: 690px;
-        top: 0;
-        right: 0;
-        margin-top: 0;
-        margin-right: 0;
-        background: #313651;
-        box-shadow: -5px 0px 10px rgba(0, 0, 0, 0.25);
-        float: right    ;
-    }
-    h2{
-        position: absolute;
-        width: 150px;
-        height: 50px;
-        left: 40%;
-        top: 100px;
-        background: #262B43;
-        border-radius: 50px;
-        justify-content: center;
-        color: white;
-        font-family: 'poppins';
-        text-align: center;
+    
+    .auth-container {
+        min-height: 100vh;
+        display: flex;
         align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
     }
-    form{
-        margin-top: 200px;
-        
+    
+    .auth-card {
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        max-width: 450px;
+        padding: 2.5rem;
+        transition: transform 0.3s ease;
     }
-    label{
+    
+    .auth-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .auth-header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+    
+    .auth-title {
+        color: var(--text-dark);
+        font-weight: 700;
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+        color: var(--text-dark);
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        display: block;
+    }
+    
+    .form-control {
+        border-radius: 12px;
+        padding: 0.8rem 1rem;
+        border: 2px solid #E2E8F0;
+        font-size: 0.95rem;
+        transition: all 0.25s ease;
+        background-color: var(--background-light);
+        width: 100%;
+    }
+    
+    .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 4px rgba(98, 146, 154, 0.15);
+        background-color: white;
+    }
+    
+    .invalid-feedback {
+        display: block;
+        color: #DC3545;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+    }
+    
+    .btn-primary {
+        background-color: var(--primary-color);
+        border: none;
+        padding: 0.8rem;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1rem;
+        letter-spacing: 0.3px;
+        transition: all 0.3s ease;
+        width: 100%;
         color: white;
+        cursor: pointer;
+        margin-top: 1rem;
     }
-    button{
-        width: 225px;
+    
+    .btn-primary:hover {
+        background-color: var(--primary-darker);
+        transform: translateY(-1px);
+    }
+    
+    .btn-primary:active {
+        transform: translateY(1px);
+    }
+    
+    @media (max-width: 576px) {
+        .auth-card {
+            padding: 2rem;
+        }
+        
+        .auth-header {
+            margin-bottom: 2rem;
+        }
+        
+        .auth-title {
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
     }
 </style>
-@section('content')
-<div class="container">
-<img src="{{ asset('web.png') }}" alt="web.png">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-                    <h2>Register</h2>
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h2 class="auth-title">Register</h2>
         </div>
+        
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+
+            <div class="form-group">
+                <label class="form-label" for="name">{{ __('Name') }}</label>
+                <input id="name" type="text" 
+                       class="form-control @error('name') is-invalid @enderror" 
+                       name="name" value="{{ old('name') }}" 
+                       required autocomplete="name" autofocus
+                       placeholder="Enter your name">
+                @error('name')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="email">{{ __('Email Address') }}</label>
+                <input id="email" type="email" 
+                       class="form-control @error('email') is-invalid @enderror" 
+                       name="email" value="{{ old('email') }}" 
+                       required autocomplete="email"
+                       placeholder="Enter your email">
+                @error('email')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="password">{{ __('Password') }}</label>
+                <input id="password" type="password" 
+                       class="form-control @error('password') is-invalid @enderror" 
+                       name="password" required autocomplete="new-password"
+                       placeholder="Create a password">
+                @error('password')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="password-confirm">{{ __('Confirm Password') }}</label>
+                <input id="password-confirm" type="password" 
+                       class="form-control" name="password_confirmation" 
+                       required autocomplete="new-password"
+                       placeholder="Confirm your password">
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                {{ __('Create Account') }}
+            </button>
+        </form>
     </div>
 </div>
 @endsection
